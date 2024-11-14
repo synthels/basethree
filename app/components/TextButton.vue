@@ -12,7 +12,7 @@ const props = defineProps(["text", "color"]);
   </a>
 </template>
 
-<style>
+<style scoped>
 @import "./theme.css";
 
 .text-button {

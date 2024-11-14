@@ -49,7 +49,7 @@ export interface FormButton {
   </div>
 </template>
 
-<style>
+<style scoped>
 @import "./theme.css";
 
 .form .content {

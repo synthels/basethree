@@ -12,7 +12,7 @@ const props = defineProps(["label", "id", "type"]);
   />
 </template>
 
-<style>
+<style scoped>
 .input {
   padding: var(--element-padding);
   border-radius: var(--border-radius);
