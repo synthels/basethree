@@ -1,0 +1,22 @@
+:root {
+  /* colors */
+  --background: #181821;
+  --text: #ffffffde;
+  --links: #1585e7;
+  --primary: #0e75cf;
+  --secondary: #2a2a36;
+
+  /* fonts */
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --header-font-size: 20pt;
+  --line-height: 1.5;
+
+  /* elements */
+  --border-radius: 8px;
+  --element-padding: 8pt;
+
+  /* page */
+  --page-padding: 20pt;
+  --font-weight: 400;
+  --responsive-width: 750px;
+}

@@ -1,0 +1,24 @@
+@import "./components/theme.css";
+
+:root {
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+
+  color-scheme: dark;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+a {
+  color: var(--links);
+  text-decoration: none;
+}
+
+/* simple spacing */
+.margin-top {
+  margin-top: 10px;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
