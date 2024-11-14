@@ -63,9 +63,9 @@ def signup():
 
 def tuple_any_empty(d, tup):
   """
-    check whether any entries of d
-    with keys in tup are empty or missing.
-    """
+  check whether any entries of d
+  with keys in tup are empty or missing.
+  """
   for k in tup:
     if (k not in d.keys()) or d[k] == "" or d[k].isspace():
       return True

@@ -5,10 +5,14 @@
   --links: #1585e7;
   --primary: #0e75cf;
   --secondary: #2a2a36;
+  --tertiary: #393944;
+
+  --red: #ff4136;
 
   /* fonts */
   --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --header-font-size: 20pt;
+  --navigation-font-size: 12pt;
   --line-height: 1.5;
 
   /* elements */
