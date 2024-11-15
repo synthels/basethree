@@ -22,5 +22,8 @@
   /* page */
   --page-padding: 20pt;
   --font-weight: 400;
-  --responsive-width: 750px;
+
+  /* Cannot actually use in mediaqueries, yet. Browser support
+     for environment variables is currently nil. */
+  --responsive-width: 700px;
 }

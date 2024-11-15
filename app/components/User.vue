@@ -75,6 +75,7 @@ const elements = [
 
 .user-container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   float: right;
 }
