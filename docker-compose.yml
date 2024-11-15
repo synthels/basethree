@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: $PG_USER
+      POSTGRES_PASSWORD: $PG_PASSWORD
+    ports:
+      - $PG_PORT:$PG_PORT
+    volumes:
+      - pgdata:/var/lib/postgres/data
+
+  backend:
+    depends_on:
+      - postgres
+    build: ./server
+    restart: always
+    ports:
+      - $BACKEND_PORT:$BACKEND_PORT
+
+  app:
+    depends_on:
+      - backend
+    build: ./
+    environment:
+      BACKEND_PORT: $BACKEND_PORT
+    restart: always
+    ports:
+      - $NODE_PORT:$NODE_PORT
+
+volumes:
+  pgdata:
