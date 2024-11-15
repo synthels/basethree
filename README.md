@@ -2,6 +2,14 @@
 
 Competitive math app built on vue with a flask backend. 
 
+## Cloning
+
+Make sure to clone the repo recursively, like so
+
+```
+git clone --recursive https://github.com/synthels/basethree.git
+```
+
 ## Running in dev mode
 
 First, you'll need to create a file named `.config` in the `server` directory. This file should contain the following variables.
