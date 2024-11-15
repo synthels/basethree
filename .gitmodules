@@ -1,0 +1,3 @@
+[submodule "public/fontawesome"]
+	path = public/fontawesome
+	url = https://github.com/synthels/fontawesome
