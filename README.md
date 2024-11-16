@@ -29,7 +29,7 @@ First, you'll need to create a file named `.config` in the `server` directory. T
 From then on, make sure you have [Docker](https://docker.com) installed. In the root directory, do
 
 ```
-docker-compose --env-file ./server/.config up
+docker-compose --env-file ./server/.config up --watch
 ```
 
 once this step is done, both the frontend, the backend and the database should be running in separate containers.

@@ -15,6 +15,11 @@ services:
       - postgres
     build: ./server
     restart: always
+    develop:
+      watch:
+        - action: sync
+          path: server
+          target: server
     ports:
       - $BACKEND_PORT:$BACKEND_PORT
 
@@ -22,9 +27,16 @@ services:
     depends_on:
       - backend
     build: ./
+    restart: always
     environment:
       BACKEND_PORT: $BACKEND_PORT
-    restart: always
+    develop:
+      watch:
+        - action: sync
+          path: app
+          target: /basethree/app
+          ignore:
+            - node_modules/
     ports:
       - $NODE_PORT:$NODE_PORT
 
