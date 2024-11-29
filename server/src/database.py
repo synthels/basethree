@@ -44,6 +44,10 @@ class Database:
     return ConnectionTup(c.cursor(), c)
 
   @classmethod
+  def close(cls, conn):
+    cls.pool.putconn(conn.connection)
+
+  @classmethod
   def execute(cls, query, p=()):
     conn = cls.connection()
     with conn.cursor as c:
@@ -52,7 +56,7 @@ class Database:
       except (psycopg2.OperationalError, psycopg2.ProgrammingError):
         raise
       finally:
-        conn.connection.close()
+        cls.close(conn)
 
   @classmethod
   def fetch(cls, query, p=(), rows=0):
@@ -66,7 +70,7 @@ class Database:
       except (psycopg2.OperationalError, psycopg2.ProgrammingError):
         raise
       finally:
-        conn.connection.close()
+        cls.close(conn)
 
   @classmethod
   def table_exists(cls, table):
