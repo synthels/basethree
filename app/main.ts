@@ -10,7 +10,7 @@ import Signup from "./Signup.vue";
 import PageNotFound from "./PageNotFound.vue";
 
 const routes = [
-  { path: "/", component: Home },
+  { path: "/app", component: Home },
   { path: "/auth", component: Auth },
   { path: "/signup", component: Signup },
   { path: "/:pathMatch(.*)*", component: PageNotFound },

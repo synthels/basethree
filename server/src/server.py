@@ -40,4 +40,3 @@ if __name__ == "server":
   main()
 
 import auth
-

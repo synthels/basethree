@@ -31,7 +31,7 @@ export const signin = () => {
     password: password,
   })
     .then((r) => {
-      console.log(r);
+      window.location.href = "/app";
     })
     .catch((error) => {
       console.log(error.response);
