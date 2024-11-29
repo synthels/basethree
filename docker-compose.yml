@@ -13,13 +13,13 @@ services:
   backend:
     depends_on:
       - postgres
-    build: ./server
+    build: server
     restart: always
     develop:
       watch:
-        - action: sync
-          path: server
-          target: server
+        - action: sync+restart
+          path: server/src
+          target: server/src
     ports:
       - $BACKEND_PORT:$BACKEND_PORT
 

@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true;
 
 async function getConf() {
   const r = await axios({
-    url: "conf.yml",
+    url: "config.yml",
     method: "get",
   });
 

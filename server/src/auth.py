@@ -43,7 +43,7 @@ def auth():
   ).hexdigest()
 
   resp = make_response("", 200)
-  resp.set_cookie("XSRF-TOKEN", session["xsrf_token"], samesite="Lax")
+  resp.set_cookie("XSRF-TOKEN", session["xsrf_token"], samesite="None")
   return resp
 
 

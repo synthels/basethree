@@ -1,6 +1,6 @@
-# basethree
+# base3
 
-Competitive math app built on vue with a flask backend. 
+Course management platform.
 
 ## Cloning
 
