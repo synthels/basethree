@@ -94,11 +94,12 @@ const elements = [
 
 .user-menu {
   display: none;
-  float: right;
+  position: absolute;
+  align-self: flex-end;
   width: 210pt;
   border-radius: var(--border-radius);
   background-color: var(--secondary);
-  margin-top: 5px;
+  margin-top: 35pt;
 }
 
 .user-menu-element {
