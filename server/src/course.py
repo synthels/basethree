@@ -33,23 +33,12 @@ class CoursesDatabase(Database):
 
   @classmethod
   def instance(cls, c=None):
-    if cls._instance is not None:
-      return cls._instance
-    cls._instance = cls.__new__(cls)
-    try:
-      super(CoursesDatabase, cls).__init__(c)
-      if not cls.table_exists("courses"):
-        print("created courses table")
-        cls.execute(
-            """CREATE TABLE courses (
-            course        JSONB,
-            last_update   TIMESTAMP
-          );
-          """
-        )
-    except (psycopg2.OperationalError, psycopg2.ProgrammingError):
-      print("couldn't create courses table")
-      exit()
+    return super().init_database(
+        cls, c, "courses", {
+            "course": "JSONB",
+            "last_update": "TIMESTAMP",
+        }
+    )
 
   @classmethod
   def get(cls, cid):

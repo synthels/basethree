@@ -37,6 +37,7 @@ def main():
   UsersDatabase.instance(creds)
   CoursesDatabase.instance(creds)
 
+  # Load all courses (TODO: maybe don't do this every time)
   CoursesDatabase.load(os.getenv("COURSES"))
 
 

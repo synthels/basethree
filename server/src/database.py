@@ -2,6 +2,8 @@ import psycopg2
 from psycopg2 import pool
 from psycopg2 import extras
 
+from psycopg2.extensions import AsIs
+
 
 class ConnectionTup:
   def __init__(self, cursor, connection):
@@ -21,20 +23,46 @@ class Credentials:
 
 
 class Database:
+  pool = None
+
   @classmethod
-  def __init__(self, c):
+  def __init__(cls, c):
     try:
-      self.pool = psycopg2.pool.SimpleConnectionPool(
-          c.min_conn,
-          c.max_conn,
-          database=c.database,
-          host=c.host,
-          user=c.user,
-          password=c.password,
-          port=c.port,
-      )
+      if cls.pool is None:
+        cls.pool = psycopg2.pool.SimpleConnectionPool(
+            c.min_conn,
+            c.max_conn,
+            database=c.database,
+            host=c.host,
+            user=c.user,
+            password=c.password,
+            port=c.port,
+        )
     except psycopg2.OperationalError as e:
       print(f"couldn't connect to database: {e}")
+      exit()
+
+  @classmethod
+  def init_database(cls, sub, c, name, table):
+    """
+    Initialise database sub by creating a table
+    called name, from key-value pairs in table.
+    """
+    if sub._instance is not None:
+      return sub._instance
+    sub._instance = sub.__new__(sub)
+    try:
+      cls.__init__(c)
+      if not cls.table_exists(name):
+        print(f"init: {sub.__name__}")
+        cls.execute(
+            "CREATE TABLE %s (%s)", (
+                AsIs(name),
+                AsIs(',\n'.join([f'{key} {t}' for key, t in table.items()]))
+            )
+        )
+    except (psycopg2.OperationalError, psycopg2.ProgrammingError):
+      print(f"error: couldn't init {sub.__name__}")
       exit()
 
   @classmethod

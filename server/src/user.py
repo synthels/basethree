@@ -21,26 +21,15 @@ class UsersDatabase(Database):
 
   @classmethod
   def instance(cls, c=None):
-    if cls._instance is not None:
-      return cls._instance
-    cls._instance = cls.__new__(cls)
-    try:
-      super(UsersDatabase, cls).__init__(c)
-      if not cls.table_exists("users"):
-        print("created users table")
-        cls.execute(
-            """CREATE TABLE users (
-            username      VARCHAR(32),
-            email         VARCHAR(256),
-            password      VARCHAR(256),
-            session_token VARCHAR(256),
-            data          JSONB
-          );
-          """
-        )
-    except (psycopg2.OperationalError, psycopg2.ProgrammingError):
-      print("couldn't create users table")
-      exit()
+    return super().init_database(
+        cls, c, "users", {
+            "username": "VARCHAR(32)",
+            "email": "VARCHAR(256)",
+            "password": "VARCHAR(256)",
+            "session_token": "VARCHAR(256)",
+            "data": "JSONB"
+        }
+    )
 
   @classmethod
   def get(cls, name):
