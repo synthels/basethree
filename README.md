@@ -25,6 +25,7 @@ First, you'll need to create a file named `.config` in the `server` directory. T
 * `PG_PORT`: Should be set to `5432`.
 * `NODE_PORT`: Should be set to `5173`.
 * `BACKEND_PORT`: Should be set to `5000`.
+* `COURSES`: The directory under `server/` where your courses are located.
 
 From then on, make sure you have [Docker](https://docker.com) installed. In the root directory, do
 

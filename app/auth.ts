@@ -30,7 +30,7 @@ export const signin = () => {
     username: username,
     password: password,
   })
-    .then((r) => {
+    .then((_r) => {
       window.location.href = "/app";
     })
     .catch((error) => {

@@ -8,8 +8,8 @@ const sidebar: SidebarElement[] = [
     text: "Home",
   },
   {
-    icon: "trophy",
-    text: "Leaderboard",
+    icon: "book",
+    text: "My courses",
   },
   {
     icon: "gear",

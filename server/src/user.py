@@ -39,7 +39,7 @@ class UsersDatabase(Database):
           """
         )
     except (psycopg2.OperationalError, psycopg2.ProgrammingError):
-      print("couldn't create users table.")
+      print("couldn't create users table")
       exit()
 
   @classmethod
