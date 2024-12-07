@@ -4,6 +4,6 @@ import Outline from "./Outline.vue";
 
 <template>
   <Outline>
-    <h2>Courses</h2>
+    <h2>Explore courses</h2>
   </Outline>
 </template>

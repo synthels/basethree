@@ -8,22 +8,35 @@ export interface SidebarElement {
 </script>
 
 <template>
-  <div class="sidebar">
-    <div class="sidebar-element" v-for="e in elements">
-      <span :class="`icon fa-solid fa-${e.icon}`" aria-hidden="true" />
-      <span class="sidebar-element-text">{{ e.text }}</span>
+  <div class="sidebar-and-outline">
+    <div class="sidebar">
+      <div class="sidebar-element" v-for="e in elements">
+        <span :class="`icon fa-solid fa-${e.icon}`" aria-hidden="true" />
+        <span class="sidebar-element-text">{{ e.text }}</span>
+      </div>
     </div>
+    <div class="sidebar-outline"></div>
   </div>
 </template>
 
 <style scoped>
+@import "./theme.css";
+
+.sidebar-and-outline {
+  display: flex;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
-  float: left;
   font-size: var(--navigation-font-size);
   min-width: 160pt;
+}
 
+.sidebar-outline {
+  height: 100vh;
+  margin-top: calc(-1 * var(--page-padding)); /** Hack! Haaaack! */
+  margin-left: 5px;
   border-color: var(--secondary);
   border-right-style: solid;
   border-right-width: 1px;
@@ -44,13 +57,17 @@ export interface SidebarElement {
   cursor: pointer;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
   .sidebar {
     flex-direction: row;
     position: fixed;
     font-size: 14pt;
 
     border-style: none;
+  }
+
+  .sidebar-outline {
+    display: none;
   }
 
   .icon {

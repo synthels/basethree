@@ -8,8 +8,16 @@ const sidebar: SidebarElement[] = [
     text: "Home",
   },
   {
+    icon: "comment",
+    text: "Announcements",
+  },
+  {
     icon: "book",
     text: "My courses",
+  },
+  {
+    icon: "chart-simple",
+    text: "Stats",
   },
   {
     icon: "gear",
@@ -42,7 +50,7 @@ const sidebar: SidebarElement[] = [
   padding: var(--page-padding);
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
   .outline {
     display: block;
   }
@@ -56,7 +64,7 @@ const sidebar: SidebarElement[] = [
   }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1000px) {
   .content-responsive {
     display: none;
   }
